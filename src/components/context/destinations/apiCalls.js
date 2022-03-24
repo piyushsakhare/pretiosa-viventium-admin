@@ -33,7 +33,7 @@ export const createDestination = async (destination, dispatch) => {
 export const deleteDestination = async (id, dispatch) => {
     dispatch(deleteDestinationStart())
     try{
-        axios.get("https://pretiosa-viventium-api.herokuapp.com/api/destinations/" + id, {
+        axios.get("/destinations/" + id, {
             headers : {
                 token : "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken 
             }

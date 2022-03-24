@@ -9,7 +9,7 @@ function Home() {
 
       useEffect(() => {
           try{
-            axios.get("https://pretiosa-viventium-api.herokuapp.com/api/users?new=true", 
+            axios.get("/users/stats", 
           {
               headers : {
                   token : `Bearer ${user.accessToken}`

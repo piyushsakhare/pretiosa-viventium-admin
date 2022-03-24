@@ -10,7 +10,7 @@ function Users() {
 
       useEffect(() => {
           try{
-            axios.get("https://pretiosa-viventium-api.herokuapp.com/api/users/", 
+            axios.get("/users/", 
           {
               headers : {
                   token : `Bearer ${user.accessToken}`
