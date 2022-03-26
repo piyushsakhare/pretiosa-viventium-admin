@@ -4,12 +4,12 @@ import { createDestinationFail, createDestinationStart, createDestinationSuccess
 export const getDestinations = async (dispatch) => {
     dispatch(getDestinationsStart())
     try{
-        const res = await axios.get("https://pretiosa-viventium-api.herokuapp.com/api/destinations/", {
+        await axios.get("https://pretiosa-viventium-api.herokuapp.com/api/destinations/", {
             headers : {
                 token : "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken 
             }
-        })
-        dispatch(getDestinationsSuccess(res.data))
+        }).then(res => dispatch(getDestinationsSuccess(res.data)))
+        
     }catch(err) {
         dispatch(getDestinationsFail())
     }
@@ -18,12 +18,12 @@ export const getDestinations = async (dispatch) => {
 export const createDestination = async (destination, dispatch) => {
     dispatch(createDestinationStart())
     try{
-        const res = await axios.post("https://pretiosa-viventium-api.herokuapp.com/api/destinations/", destination , {
+        await axios.post("https://pretiosa-viventium-api.herokuapp.com/api/destinations/", destination , {
             headers : {
                 token : "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken 
             }
-        })
-        dispatch(createDestinationSuccess(res.data))
+        }).then(res =>  dispatch(createDestinationSuccess(res.data)))
+       
     }catch(err) {
         dispatch(createDestinationFail())
     }
@@ -33,7 +33,7 @@ export const createDestination = async (destination, dispatch) => {
 export const deleteDestination = async (id, dispatch) => {
     dispatch(deleteDestinationStart())
     try{
-        axios.get("https://pretiosa-viventium-api.herokuapp.com/api/destinations/" + id, {
+        axios.get("https://pretiosa-viventium-api.herokuapp.com/api/destinations/find/" + id, {
             headers : {
                 token : "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken 
             }

@@ -56,6 +56,8 @@ function CreateDestinations() {
         createDestination(destination, dispatch)
     }
 
+    console.log(destination)
+
     return (
         <div className="text-black" >
             <form  >

@@ -12,7 +12,7 @@ ReactDOM.render(
     <BrowserRouter>
     <AuthContextProvider>
       <DestinationContextProvider>
-      <App />
+        <App />
       </DestinationContextProvider>
     </AuthContextProvider>
     </BrowserRouter>
