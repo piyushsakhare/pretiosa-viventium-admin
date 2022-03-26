@@ -18,7 +18,7 @@ export const getDestinations = async (dispatch) => {
 export const createDestination = async (destination, dispatch) => {
     dispatch(createDestinationStart())
     try{
-        await axios.post("https://pretiosa-viventium-api.herokuapp.com/api/destinations/", destination , {
+        await axios.post("https://pretiosa-viventium-api.herokuapp.com/api/destinations", destination , {
             headers : {
                 token : "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken 
             }
