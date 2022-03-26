@@ -26,6 +26,7 @@ export const createDestination = async (destination, dispatch) => {
        
     }catch(err) {
         dispatch(createDestinationFail())
+        console.log(err)
     }
 }
 
